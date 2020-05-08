@@ -3,7 +3,7 @@ DISCOUNTING_RATE = 0.2
 LEARNING_RATE = 0.1
 GOAL_REWARD = 100
 FORBIDDEN_REWARD = -100
-EPISILON = 0.1
+EPSILON = 0.1
 MAX_ITERATIONS = 10000
 START_SQUARE_IDX = 2
 
@@ -91,12 +91,12 @@ for i in range(1, 17):
 iteration = 0
 new_board = copy.deepcopy(board)
 curr_square = new_board[START_SQUARE_IDX-1]
-while iteration < MAX_ITERATIONS:
-    EPISILON = 0 if is_convergent(board, new_board, iteration) else EPISILON
+# stop when either of the two criteria is met
+while not is_convergent(board, new_board, iteration) and iteration < MAX_ITERATIONS:
     board = copy.deepcopy(new_board)
     while not (curr_square.square_type == 'G' or curr_square.square_type == 'F'):
         # move to a new square by a chosen direction
-        if random.uniform(0, 1) < EPISILON:
+        if random.uniform(0, 1) < EPSILON:
             # agent chooses an action randomly
             move_direction = random.randint(0, 3)
         else:

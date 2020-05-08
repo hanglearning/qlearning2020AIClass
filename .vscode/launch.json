@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/hw4.py",
             "console": "integratedTerminal",
-            "args": ["13 4 5 3 p"]
+            "args": ["13 4 5 3 q 16"]
         }
     ]
 }
