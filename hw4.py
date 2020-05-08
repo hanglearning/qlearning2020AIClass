@@ -91,8 +91,8 @@ for i in range(1, 17):
 iteration = 0
 new_board = copy.deepcopy(board)
 curr_square = new_board[START_SQUARE_IDX-1]
-# stop when either of the two criteria is met
-while not is_convergent(board, new_board, iteration) and iteration < MAX_ITERATIONS:
+while iteration < MAX_ITERATIONS:
+    EPISILON = 0 if is_convergent(board, new_board, iteration) else EPISILON
     board = copy.deepcopy(new_board)
     while not (curr_square.square_type == 'G' or curr_square.square_type == 'F'):
         # move to a new square by a chosen direction
